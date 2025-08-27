@@ -1,0 +1,126 @@
+# plugin.yml - поместите этот файл в src/main/resources
+name: Narkomanka
+version: '1.0'
+main: com.Minecraft_server.Narkomanka.Narkomanka
+api-version: '1.20'
+authors:
+  - Uz1ps
+description: A plugin inspired by the Schedule game with quests and economy systems
+
+commands:
+  hello:
+    description: Sends a greeting to the player
+    usage: /<command> [player]
+    permission: narkomanka.hello
+  balance:
+    description: Manage your cash and card balance
+    usage: /<command> [transfer/withdraw] [amount]
+    aliases: [money, bal]
+    permission: narkomanka.balance
+  quest:
+    description: Manage quests
+    usage: /<command> [list/info/start] [id]
+    aliases: [quests, q]
+    permission: narkomanka.quest
+  grow:
+    description: Система выращивания растений
+    usage: /<command> [help/box/seed/soil/water/fertilizer] [тип] [качество]
+    aliases: [plant, farming]
+    permission: narkomanka.grow
+  spawn_dealer:
+    description: Spawn a drug dealer NPC at your location
+    usage: /<command>
+    permission: narkomanka.admin
+  spawn_vendor:
+    description: Spawn a supplies vendor NPC at your location
+    usage: /<command>
+    permission: narkomanka.admin
+  buy_drug:
+    description: Buy drugs from a dealer
+    usage: /<command> <type> [amount]
+    permission: narkomanka.drugs
+  buy_supply:
+    description: Buy supplies from a vendor
+    usage: /<command> <type> [amount]
+    permission: narkomanka.supplies
+  trash:
+    description: Commands for trash system
+    usage: /<command> [help/collector/info/reload/clean/generate]
+    aliases: [rubbish, garbage]
+    permission: narkomanka.trash
+  trashstation:
+    description: Manage trash recycling stations
+    usage: /<command> [help/create/remove/list] [name]
+    aliases: [trashstations, recycling]
+    permission: narkomanka.admin
+  phone:
+    description: Управление телефонной системой
+    usage: /<command> [help/simulate_call/give]
+    permission: narkomanka.phone
+    aliases: [call]
+  npc:
+    description: Управление NPC в стиле Schedule I
+    usage: /<command> [populate/spawn/clear] [параметры]
+    permission: narkomanka.admin
+    aliases: [npcs]
+
+permissions:
+  narkomanka.hello:
+    description: Allows to use hello command
+    default: true
+  narkomanka.balance:
+    description: Allows to use balance command
+    default: true
+  narkomanka.quest:
+    description: Allows to use quest command
+    default: true
+  narkomanka.admin:
+    description: Allows administrative commands
+    default: op
+    children:
+      narkomanka.trash.admin: true
+  narkomanka.drugs:
+    description: Allows to buy drugs
+    default: true
+  narkomanka.supplies:
+    description: Allows to buy supplies
+    default: true
+  narkomanka.trash:
+    description: Allows to use trash system
+    default: true
+  narkomanka.trash.collector:
+    description: Allows to get a trash collector
+    default: true
+  narkomanka.trash.container:
+    description: Allows to get a trash container
+    default: true
+  narkomanka.trash.admin:
+    description: Allows to manage trash system
+    default: op
+  narkomanka.grow:
+    description: Доступ к базовым командам выращивания
+    default: true
+  narkomanka.grow.seed:
+    description: Доступ к получению семян
+    default: op
+  narkomanka.grow.box:
+    description: Доступ к получению гроубоксов
+    default: op
+  narkomanka.grow.soil:
+    description: Доступ к получению почвы
+    default: op
+  narkomanka.grow.water:
+    description: Доступ к получению воды
+    default: op
+  narkomanka.grow.fertilizer:
+    description: Доступ к получению удобрений
+    default: op
+  narkomanka.phone:
+    description: Разрешает использовать команду /phone
+    default: true
+  narkomanka.phone.simulate:
+    description: Разрешает симулировать телефонные звонки
+    default: op
+  narkomanka.phone.give:
+    description: Разрешает выдавать телефоны
+    default: op
